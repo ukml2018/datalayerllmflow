@@ -12,6 +12,7 @@ import dataframes
 import pyarrow as pa
 import redis
 import pickle
+import yaml
 import json
 app = Flask(__name__)
 load_dotenv()
