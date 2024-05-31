@@ -6,4 +6,5 @@ redis
 pyarrow
 streamlit
 faiss-cpu
-sqlalchemy 
+sqlalchemy
+pyyaml
