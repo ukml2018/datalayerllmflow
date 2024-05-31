@@ -1,0 +1,9 @@
+pyodbc
+flask
+jsonify
+pandasai
+redis
+pyarrow
+streamlit
+faiss-cpu
+sqlalchemy 
