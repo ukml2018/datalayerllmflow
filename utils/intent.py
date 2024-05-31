@@ -36,8 +36,10 @@ def ll_helper_rules():
 
 def create_vector(rules: list, new_rule_added: bool):
 
-    VECTOR_INDEX_PATH = os.getenv("vector_index_path")
-    VECTOR_INDEX_RULES = os.getenv("vector_index_rules")
+    #VECTOR_INDEX_PATH = os.getenv("vector_index_path")
+    #VECTOR_INDEX_RULES = os.getenv("vector_index_rules")
+    VECTOR_INDEX_PATH = "/FAISS_VECTOR_INDEX"
+    VECTOR_INDEX_RULES = "vector_index_rules"
     embeddings = get_embedding_model()
 
     if new_rule_added == False:
@@ -98,8 +100,8 @@ def get_gpt35turbo_model():
         azure_llm = AzureOpenAI(
         model="gpt-35-turbo",
         deployment_name="IB-gpt35turbo-model",
-        api_key=os.getenv('azure_openai_api_key'),
-        azure_endpoint=os.getenv('azure_api_endpoint'),
+        api_key="cb8bc4e498274c2295903f3a39f58a45",
+        azure_endpoint="https://aoi-imperialbrand.openai.azure.com/",
         api_version="2023-07-01-preview",
         temperature=0,
         #max_tokens=4096,
@@ -111,19 +113,19 @@ def get_gpt4_model():
     azure_llm = AzureChatOpenAI(
     model="gpt-4",
     deployment_name="ib-chatgpt4-model",
-    api_key=os.getenv('azure_openai_api_key'),
+    api_key="cb8bc4e498274c2295903f3a39f58a45",
     #api_key=os.getenv('azure_openai_api_key'),
-    azure_endpoint=os.getenv('azure_api_endpoint'),
+    azure_endpoint="https://aoi-imperialbrand.openai.azure.com/",
     api_version="2024-02-01", 
     temperature=0.0,)
     return azure_llm
 
 def get_embedding_model():
     azure_embed_model = AzureOpenAIEmbeddings(
-    model=os.getenv('azure_embedding_model'),
+    model="text-embedding-ada-002",
     azure_deployment="text-embedding-ada-002",
-    api_key=os.getenv('azure_openai_api_key'),
-    azure_endpoint=os.getenv('azure_api_endpoint'),
+    api_key="cb8bc4e498274c2295903f3a39f58a45",
+    azure_endpoint="https://aoi-imperialbrand.openai.azure.com/",
     #api_version="2023-08-01-preview"
     )
     return azure_embed_model
