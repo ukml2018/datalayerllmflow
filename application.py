@@ -64,20 +64,20 @@ def main(userquery):
             response = pickle.loads(r.get(key))
             print("I got the response in cache")
         except:
-            print("I didn't get the response in cache. I will call LLM agent now.") 
-        try:
-            response=call_llm_agent(user_query)
-            print("I will add the response to cache now") 
-            r.set(key, pickle.dumps(response))
-        except:
-            print("I didn't get the response in llm model. I will call LLM agent now.") 
+            print("I didn't get the response in cache -1. I will call LLM agent now.") 
+            try:
+              response=call_llm_agent(user_query)
+              print("I will add the response to cache now") 
+              r.set(key, pickle.dumps(response))
+            except:
+              print("I didn't get the response in llm model -1. I will call LLM agent now.") 
 
     else:
         try:
           print("Before calling LLm agent")
           response=call_llm_agent(user_query)
         except:
-          print("I didn't get the response in llm model. I will call LLM agent now.") 
+          print("I didn't get the response in llm model -2. I will call LLM agent now.") 
 
     print(response)    
     return json.dumps(response)
