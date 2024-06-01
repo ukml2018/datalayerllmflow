@@ -74,7 +74,7 @@ def main(userquery):
         response=call_llm_agent(user_query)
 
     print(response)    
-    return response
+    return json.dumps(response)
 
 ##@app.route('/agent/<user_query>', methods=['GET'])
 def call_llm_agent(user_query: str):
