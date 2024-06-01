@@ -38,7 +38,10 @@ def create_vector(rules: list, new_rule_added: bool):
 
     #VECTOR_INDEX_PATH = os.getenv("vector_index_path")
     #VECTOR_INDEX_RULES = os.getenv("vector_index_rules")
-    VECTOR_INDEX_PATH = "/FAISS_VECTOR_INDEX"
+    workingdir = os.path.abspath(os.getcwd())
+    print(workingdir)
+    VECTOR_INDEX_PATH = workingdir + '/FAISS_VECTOR_INDEX/'
+    #VECTOR_INDEX_PATH = '/FAISS_VECTOR_INDEX'
     VECTOR_INDEX_RULES = "vector_index_rules"
     embeddings = get_embedding_model()
 
