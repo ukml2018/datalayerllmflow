@@ -17,7 +17,7 @@ import json
 app = Flask(__name__)
 load_dotenv()
 
-@app.route('/<userquery>', methods=['GET'])
+@app.route('/<string:userquery>', methods=['GET'])
 def main(userquery):
     
     #user_query = "Find the lowest sales product from 0015I00000OYJeHQAX for cigarettes product group"
