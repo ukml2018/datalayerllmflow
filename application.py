@@ -17,11 +17,13 @@ import json
 app = Flask(__name__)
 load_dotenv()
 
-@app.route('/<string:userquery>', methods=['GET'])
-def main(userquery):
+@app.route('/<string:session_id>/<string:flag>/<string:userquery>', methods=['GET'])
+def main(session_id,flag,userquery):
     
     #user_query = "Find the lowest sales product from 0015I00000OYJeHQAX for cigarettes product group"
+    session_id = session_id
     user_query = userquery
+    flag = flag
     response = "I am not able to find answer in cache, handing over to LLM agent to generate answer"
     r= redis.StrictRedis(host="imperial-redis.redis.cache.windows.net",port=6380, password="uFSfuIjsensXBTtE8Q7JSSXiLy8GdKN0ZAzCaAuPAHo=", ssl=True)
 
